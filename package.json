@@ -1,0 +1,16 @@
+{
+  "name": "stitch",
+  "version": "0.0.2",
+  "description": "CSS sprite sheet generator",
+  "keywords": ["sprite", "css"],
+  "author": "Simen Brekken <simen@unfold.no>",
+  "bin": {
+    "stitch": "./bin/stitch"
+  },
+  "dependencies": {
+    "canvas": "0.13.x",
+    "css": "1.0.x",
+    "commander": "1.0.x",
+    "mkdirp": "0.3.x"
+  }
+}
