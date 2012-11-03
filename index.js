@@ -1,1 +1,1 @@
-module.exports = require('./lib/stitch');
+module.exports = require('./lib/spriter');

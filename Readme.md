@@ -1,5 +1,5 @@
 
-# sprite
+# spriter
 
   CSS sprite sheet generator
 
