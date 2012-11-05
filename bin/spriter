@@ -9,3 +9,5 @@ program
   .option('-s, --source <path>', 'source path filter relative to input file', 'images/sprites')
   .option('-t, --target <path>', 'target path relative to input file', 'images/generated/sprites')
   .parse(process.argv);
+
+process.stdout.write(spriter(program.args[0], program.source, program.target));
