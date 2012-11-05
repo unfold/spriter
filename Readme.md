@@ -1,6 +1,6 @@
 # spriter
 
-  CSS sprite sheet generator
+  CSS sprite sheet generator that analyzes your existing stylesheet and generates optimized sprite sheets along with an updated stylesheet
 
 ## Installation
 
