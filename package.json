@@ -1,16 +1,25 @@
 {
   "name": "spriter",
-  "version": "0.0.6",
   "description": "CSS sprite sheet generator",
-  "keywords": ["sprite", "css"],
   "author": "Simen Brekken <simen@unfold.no>",
+  "keywords": ["sprite", "css"],
+  "version": "0.0.6",
+  "license": "MIT",
   "bin": {
     "spriter": "./bin/spriter"
+  },
+  "main": "./lib/spriter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unfold/spriter"
   },
   "dependencies": {
     "canvas": "0.13.x",
     "css": "1.0.x",
     "commander": "1.0.x",
     "mkdirp": "0.3.x"
+  },
+  "engines": {
+    "node": ">= 0.8"
   }
 }
