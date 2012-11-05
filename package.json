@@ -1,6 +1,6 @@
 {
   "name": "spriter",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "CSS sprite sheet generator",
   "keywords": ["sprite", "css"],
   "author": "Simen Brekken <simen@unfold.no>",
