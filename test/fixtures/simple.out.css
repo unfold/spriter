@@ -1,0 +1,8 @@
+.circle {
+  background: url(images/generated/sprites/simple.png) no-repeat;
+  background-position: -48px 0
+}
+
+.circle.blue {
+  background-image: url(images/generated/sprites/simple.png)
+}
