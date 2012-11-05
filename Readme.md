@@ -1,7 +1,31 @@
-
 # spriter
 
   CSS sprite sheet generator
+
+## Installation
+
+    $ npm install spriter
+
+## spriter(1)
+
+```
+
+Usage: spriter [options] <file>
+
+Options:
+
+  -h, --help            output usage information
+  -V, --version         output the version number
+  -s, --source <path>   source path filter relative to input file
+  -t, --target <path>   target path relative to input file
+
+```
+
+for example:
+
+```
+$ spriter -s images/sprites -t images/generated/sprites css/main.css > css/main.sprited.css
+```
 
 ## License
 
