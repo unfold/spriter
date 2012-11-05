@@ -1,3 +1,5 @@
+[![build status](https://secure.travis-ci.org/unfold/spriter.png)](http://travis-ci.org/unfold/spriter)
+
 # spriter
 
   CSS sprite sheet generator that analyzes your existing stylesheet and generates optimized sprite sheets along with an updated stylesheet
