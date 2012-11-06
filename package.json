@@ -3,7 +3,7 @@
   "description": "CSS sprite sheet generator",
   "author": "Simen Brekken <simen@unfold.no>",
   "keywords": ["sprite", "css"],
-  "version": "0.0.6",
+  "version": "0.0.7",
   "license": "MIT",
   "bin": {
     "spriter": "./bin/spriter"
