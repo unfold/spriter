@@ -1,6 +1,5 @@
 var spriter = require('..'),
-    fs = require('fs'),
-    Canvas = require('canvas');
+    fs = require('fs');
 
 function fixture(name) {
     return fs.readFileSync('test/fixtures/' + name + '.css', 'utf8');
@@ -19,7 +18,7 @@ describe('spriter', function() {
     });
 
     it('should not read filtered declarations', function() {
-       spriter('test/fixtures/filtered.css', sourcePath, targetPath).should.equal(fixture('filtered.out'));
+        spriter('test/fixtures/filtered.css', sourcePath, targetPath).should.equal(fixture('filtered.out'));
     });
 
     it('should group sprites by suffix', function() {

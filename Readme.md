@@ -33,7 +33,7 @@ $ spriter -s images/sprites -t images/generated/sprites css/main.css > css/main.
 
 (The MIT License)
 
-Copyright (c) 2011 Simen Brekken &lt;simen@unfold.no&gt;
+Copyright (c) 2012 Simen Brekken &lt;simen@unfold.no&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
