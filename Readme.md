@@ -12,28 +12,35 @@
 
 ```
 
-Usage: spriter [options] <file>
+Usage: spriter [options] [< in [> out]] [file]
 
 Options:
 
+  -t, --target <path>   target path relative to input
+  -s, --source <path>   source path relative to input (required when stdin is used)
+  -f, --filter <path>   source url filter (e.g: images/sprites)
   -h, --help            output usage information
   -V, --version         output the version number
-  -s, --source <path>   source path filter relative to input file
-  -t, --target <path>   target path relative to input file
 
 ```
 
 for example:
 
 ```
-$ spriter -s images/sprites -t images/generated/sprites css/main.css > css/main.sprited.css
+$ spriter -t images/sprites/main.png css/main.css > css/main.sprited.css
+```
+
+or via `stdin`
+
+```
+$ cat css/main.css | spriter -t images/generated/sprites/main.png -s images/sprites -f images/sprites > css/main.sprited.css
 ```
 
 ## License
 
 (The MIT License)
 
-Copyright (c) 2012 Simen Brekken &lt;simen@unfold.no&gt;
+Copyright (c) 2012 Simen Brekken &lt;simen@unfold.no&gt; and Daniel Mahal &lt;daniel@unfold.no&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

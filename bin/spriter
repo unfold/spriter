@@ -1,13 +1,39 @@
 #!/usr/bin/env node
 
 var program = require('commander'),
+    path = require('path'),
+    fs = require('fs'),
     spriter = require('..');
 
 program
   .version(require('../package.json').version)
-  .usage('[options] <file>')
-  .option('-s, --source <path>', 'source path filter relative to input file', 'images/sprites')
-  .option('-t, --target <path>', 'target path relative to input file', 'images/generated/sprites')
+  .usage('[options] [< in [> out]] [file]')
+  .option('-t, --target <path>', 'target path relative to input', 'images/generated/sprites.png')
+  .option('-s, --source <path>', 'source path relative to input (required when stdin is used)')
+  .option('-f, --filter <path>', 'source url filter (e.g: images/sprites)')
   .parse(process.argv);
 
-process.stdout.write(spriter(program.args[0], program.source, program.target));
+var file = program.args[0];
+
+if (file) {
+    var input = fs.readFileSync(file, 'utf-8');
+    var output = spriter(input, program.source || path.dirname(file), program.target, program.filter);
+
+    process.stdout.write(output);
+} else if (program.source) {
+    var chunks = [];
+
+    process.stdin.on('data', chunks.push.bind(chunks));
+    process.stdin.on('end', function() {
+        var output = spriter(chunks.join(''), program.source, program.target, program.filter);
+
+        process.stdout.write(output);
+    });
+
+    process.stdin.setEncoding('utf8');
+    process.stdin.resume();
+} else {
+    console.log('  Error: Missing required parameter source');
+
+    program.help();
+}
