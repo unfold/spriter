@@ -50,7 +50,7 @@ describe('spriter', function() {
     });
 
     it('should not read filtered declarations', function() {
-        spriter(fixture('filtered'), fixturePath, targetPath + 'filtered.png', 'images/sprites').should.equal(fixture('filtered.out'));
+        spriter(fixture('filtered'), fixturePath, targetPath + 'filtered.png', 'sprites/').should.equal(fixture('filtered.out'));
 
         diff(fixturePath + targetPath + 'filtered.png', fixturePath + 'filtered.out.png').should.be.false;
     });
