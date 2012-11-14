@@ -1,5 +1,4 @@
 var spriter = require('..'),
-    path = require('path'),
     fs = require('fs'),
     Canvas = require('canvas');
 
