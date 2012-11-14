@@ -1,0 +1,13 @@
+.circle {
+  background: url(images/sprites/black-circle.png) no-repeat;
+}
+
+.circle.blue {
+  background-image: url(images/sprites/light-blue-circle.png);
+}
+
+@media screen and (min-width: 300px) {
+  .circle {
+    background-image: url(images/sprites/light-blue-circle.png);
+  }
+}

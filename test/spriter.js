@@ -60,4 +60,10 @@ describe('spriter', function() {
         diff(fixturePath + targetPath + 'suffix.png', fixturePath + 'suffix.out.png').should.be.false;
         diff(fixturePath + targetPath + 'suffix@2x.png', fixturePath + 'suffix.out@2x.png').should.be.false;
     });
+
+    it('should add duplicate images to sprite sheet', function() {
+        spriter(fixture('duplicate'), fixturePath, targetPath + 'duplicate.png').should.equal(fixture('duplicate.out'));
+
+        diff(fixturePath + targetPath + 'duplicate.png', fixturePath + 'duplicate.out.png').should.be.false;
+    });
 });
