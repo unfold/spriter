@@ -3,5 +3,6 @@
 }
 
 .circle.blue {
-  background-image: url(images/generated/sprites/filtered.png)
+  background-image: url(images/generated/sprites/filtered.png);
+  background-position: 0 0
 }

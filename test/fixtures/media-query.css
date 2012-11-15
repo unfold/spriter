@@ -1,5 +1,5 @@
 @media all and (min-width: 600px) {
   .button {
-    background: url(images/sprites/black-circle.png) no-repeat;
+    background: url(images/sprites/black-circle.png) no-repeat
   }
 }

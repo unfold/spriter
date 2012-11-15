@@ -4,5 +4,6 @@
 }
 
 .circle.blue {
-  background-image: url(images/generated/sprites/simple.png)
+  background-image: url(images/generated/sprites/simple.png);
+  background-position: 0 0
 }
