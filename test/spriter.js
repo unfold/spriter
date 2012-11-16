@@ -43,9 +43,9 @@ describe('spriter', function() {
     });
 
     it('should generate sprite sheet without optimization', function() {
-        spriter(fixture('simple'), fixturePath, targetPath + 'simple.png').should.equal(fixture('simple.no-optimize.out'));
+        spriter(fixture('no-optimization'), fixturePath, targetPath + 'no-optimization.png').should.equal(fixture('no-optimization.out'));
 
-        diff(fixturePath + targetPath + 'simple.png', fixturePath + 'simple.out.png').should.be.false;
+        diff(fixturePath + targetPath + 'no-optimization.png', fixturePath + 'no-optimization.out.png').should.be.false;
     });
 
     it('should not read filtered declarations', function() {

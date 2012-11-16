@@ -1,0 +1,9 @@
+.circle {
+  background: url(images/generated/sprites/no-optimization.png) no-repeat;
+  background-position: 0 0
+}
+
+.circle.black {
+  background-image: url(images/generated/sprites/no-optimization.png);
+  background-position: -48px 0
+}
