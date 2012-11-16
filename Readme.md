@@ -16,11 +16,12 @@ Usage: spriter [options] [< in [> out]] [file]
 
 Options:
 
-  -t, --target <path>   target path relative to input
-  -s, --source <path>   source path relative to input (required when stdin is used)
-  -f, --filter <path>   source url filter (e.g: images/sprites)
-  -h, --help            output usage information
-  -V, --version         output the version number
+  -t, --target <path>      target path relative to input
+  -s, --source <path>      source path relative to input (required when stdin is used)
+  -f, --filter <path>      source url filter (e.g: images/sprites)
+  -O, --no-optimization    disable rule optimization')
+  -h, --help               output usage information
+  -V, --version            output the version number
 
 ```
 
@@ -35,6 +36,29 @@ or via `stdin`
 ```
 $ cat css/main.css | spriter -t images/generated/sprites/main.png -s images/sprites -f images/sprites > css/main.sprited.css
 ```
+
+## Rule optimization
+
+Spriter will by default combine multi-declaration background declarations within the same rule:
+
+```css
+.circle {
+  background: url(images/generated/sprites.png) no-repeat;
+  background-position: -50px 0;
+  background-color: #ccc;
+  background-size: 100px auto
+}
+```
+
+becomes:
+
+```css
+.circle {
+  background: #ccc url(images/generated/sprites.png) -50px 0 100px auto no-repeat
+}
+```
+
+Optimization can be disabled by supplying the `-O/--no-optimization` flag.
 
 ## License
 

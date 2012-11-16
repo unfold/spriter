@@ -37,32 +37,38 @@ function diff(a, b) {
 
 describe('spriter', function() {
     it('should generate sprite sheet', function() {
-        spriter(fixture('simple'), fixturePath, targetPath + 'simple.png').should.equal(fixture('simple.out'));
+        spriter(fixture('simple'), fixturePath, targetPath + 'simple.png', null, true).should.equal(fixture('simple.out'));
 
         diff(fixturePath + targetPath + 'simple.png', fixturePath + 'simple.out.png').should.be.false;
     });
 
-    it('should read declarations within media queries', function() {
-        spriter(fixture('media-query'), fixturePath, targetPath + 'media-query.png').should.equal(fixture('media-query.out'));
+    it('should generate sprite sheet without optimization', function() {
+        spriter(fixture('simple'), fixturePath, targetPath + 'simple.png').should.equal(fixture('simple.no-optimize.out'));
 
-        diff(fixturePath + targetPath + 'media-query.png', fixturePath + 'media-query.out.png').should.be.false;
+        diff(fixturePath + targetPath + 'simple.png', fixturePath + 'simple.out.png').should.be.false;
     });
 
     it('should not read filtered declarations', function() {
-        spriter(fixture('filtered'), fixturePath, targetPath + 'filtered.png', 'sprites/').should.equal(fixture('filtered.out'));
+        spriter(fixture('filtered'), fixturePath, targetPath + 'filtered.png', 'sprites/', true).should.equal(fixture('filtered.out'));
 
         diff(fixturePath + targetPath + 'filtered.png', fixturePath + 'filtered.out.png').should.be.false;
     });
 
+    it('should read declarations within media queries', function() {
+        spriter(fixture('media-query'), fixturePath, targetPath + 'media-query.png', null, true).should.equal(fixture('media-query.out'));
+
+        diff(fixturePath + targetPath + 'media-query.png', fixturePath + 'media-query.out.png').should.be.false;
+    });
+
     it('should group sprites by suffix', function() {
-        spriter(fixture('suffix'), fixturePath, targetPath + 'suffix.png').should.equal(fixture('suffix.out'));
+        spriter(fixture('suffix'), fixturePath, targetPath + 'suffix.png', null, true).should.equal(fixture('suffix.out'));
 
         diff(fixturePath + targetPath + 'suffix.png', fixturePath + 'suffix.out.png').should.be.false;
         diff(fixturePath + targetPath + 'suffix@2x.png', fixturePath + 'suffix.out@2x.png').should.be.false;
     });
 
     it('should add duplicate images to sprite sheet', function() {
-        spriter(fixture('duplicate'), fixturePath, targetPath + 'duplicate.png').should.equal(fixture('duplicate.out'));
+        spriter(fixture('duplicate'), fixturePath, targetPath + 'duplicate.png', null, true).should.equal(fixture('duplicate.out'));
 
         diff(fixturePath + targetPath + 'duplicate.png', fixturePath + 'duplicate.out.png').should.be.false;
     });

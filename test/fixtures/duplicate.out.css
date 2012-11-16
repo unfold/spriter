@@ -1,16 +1,13 @@
 .circle {
-  background: url(images/generated/sprites/duplicate.png) no-repeat;
-  background-position: -48px 0
+  background: url(images/generated/sprites/duplicate.png) -48px 0 no-repeat
 }
 
 .circle.blue {
-  background-image: url(images/generated/sprites/duplicate.png);
-  background-position: 0 0
+  background: url(images/generated/sprites/duplicate.png) no-repeat
 }
 
 @media screen and (min-width: 300px) {
   .circle {
-  background-image: url(images/generated/sprites/duplicate.png);
-  background-position: 0 0
-}
+    background: url(images/generated/sprites/duplicate.png) no-repeat
+  }
 }
