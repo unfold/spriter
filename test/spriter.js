@@ -36,7 +36,7 @@ function diff(a, b) {
 }
 
 describe('spriter', function() {
-    it('should generate sprite sheet', function() {
+    it('should generate sprite sheet with optimization', function() {
         spriter(fixture('simple'), fixturePath, targetPath + 'simple.png', null, true).should.equal(fixture('simple.out'));
 
         diff(fixturePath + targetPath + 'simple.png', fixturePath + 'simple.out.png').should.be.false;

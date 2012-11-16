@@ -1,5 +1,5 @@
 .circle {
-  background: url(images/sprites/black-circle.png) no-repeat;
+  background: url(images/sprites/black-circle.png) 0 0 no-repeat;
 }
 
 .circle.blue {
