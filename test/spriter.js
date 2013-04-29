@@ -72,4 +72,8 @@ describe('spriter', function() {
 
         diff(fixturePath + targetPath + 'duplicate.png', fixturePath + 'duplicate.out.png').should.be.false;
     });
+
+    it('should handle empty rules and declarations', function() {
+        spriter(fixture('empty'), fixturePath, targetPath + 'empty.png', null, true).should.equal(fixture('empty.out'));
+    });
 });

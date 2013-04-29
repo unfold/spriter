@@ -1,0 +1,17 @@
+.circle {
+
+}
+
+.circle.blue {
+
+}
+
+@media screen and (min-width: 100px) {
+
+}
+
+@media screen and (min-width: 200px) {
+  .circle {
+
+  }
+}

@@ -19,7 +19,7 @@ Options:
   -t, --target <path>      target path relative to input
   -s, --source <path>      source path relative to input (required when stdin is used)
   -f, --filter <path>      source url filter (e.g: images/sprites)
-  -O, --no-optimization    disable rule optimization')
+  -O, --no-optimization    disable rule optimization
   -h, --help               output usage information
   -V, --version            output the version number
 
