@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Spriter by unfold</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Spriter</h1>
+        <p>CSS sprite sheet generator</p>
+
+        <p class="view"><a href="https://github.com/unfold/spriter">View the Project on GitHub <small>unfold/spriter</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/unfold/spriter/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/unfold/spriter/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/unfold/spriter">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>CSS Sprites Made Simple.</h3>
+
+<p>Spriter analyzes your existing CSS file, generates <a href="http://codeincomplete.com/posts/2011/5/7/bin_packing">highly optimized sprite sheets</a> and outputs an updated CSS file. It even groups your retina and non-retina images into separate sprite sheets to reduce load times.</p>
+
+<h4>No strings attached</h4>
+
+<p>Instead of relying on a specific <a href="http://compass-style.org">framework</a> or <a href="http://gruntjs.com">build system</a> Spriter will work with anything that outputs or processes a CSS file.</p>
+
+<h3>Installation</h3>
+
+<pre><code>$ npm install spriter
+</code></pre>
+
+<h3>Usage</h3>
+
+<pre><code>$ spriter [options] [&lt; in [&gt; out]] [file]
+</code></pre>
+
+<h3>Options</h3>
+
+<pre><code>-t, --target &lt;path&gt;      target path relative to input
+-s, --source &lt;path&gt;      source path relative to input (required when stdin is used)
+-f, --filter &lt;path&gt;      source url filter (e.g: images/sprites)
+-O, --no-optimization    disable rule optimization
+-h, --help               output usage information
+-V, --version            output the version number
+</code></pre>
+
+<h3>Examples</h3>
+
+<h4>Generating a simple sprite sheet from an existing CSS file:</h4>
+
+<pre><code>$ spriter -t images/sprites.png main.css &gt; main.sprited.css
+</code></pre>
+
+<p>If Spriter finds any retina resolution images it will generate a separate sprite sheet for those images (in this example <code>ímages/sprites@2x.png</code>)</p>
+
+<h4>Using Spriter with <a href="http://sass-lang.com">SASS</a>:</h4>
+
+<pre><code>$ sass main.scss | spriter -t images/sprites.png -s images &gt; main.css
+</code></pre>
+
+<p>The <code>-s</code> switch tells Spriter how to translate URLs into file system paths when reading images.</p>
+
+<h4>Only include images in a specific location</h4>
+
+<pre><code>$ spriter -t images/home-sprites.png -f images/home/ main.css &gt; main.sprited.css
+</code></pre>
+
+<p>This is handy for multi-page sites where you want to group sprite sheets by page or similar.</p>
+
+<h3>Rule optimization</h3>
+
+<p>Spriter will by default combine multi-declaration background declarations within the same rule:</p>
+
+<div class="highlight"><pre><span class="nc">.circle</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="sx">url(images/generated/sprites.png)</span> <span class="k">no-repeat</span><span class="p">;</span>
+    <span class="k">background-position</span><span class="o">:</span> <span class="m">-50px</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="m">#ccc</span><span class="p">;</span>
+    <span class="k">background</span><span class="o">-</span><span class="k">size</span><span class="o">:</span> <span class="m">100px</span> <span class="k">auto</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>becomes:</p>
+
+<div class="highlight"><pre><span class="nc">.circle</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#ccc</span> <span class="sx">url(images/generated/sprites.png)</span> <span class="m">-50px</span> <span class="m">0</span> <span class="m">100px</span> <span class="k">auto</span> <span class="k">no-repeat</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Optimization can be disabled by supplying the <code>-O/--no-optimization</code> flag.</p>
+
+<h3>API</h3>
+
+<pre><code>var spriter = require('spriter')
+
+spriter(string, sourcePath, targetPath, optimize)
+</code></pre>
+
+<h3>License</h3>
+
+<p><a href="http://en.wikipedia.org/wiki/MIT_License">MIT</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/unfold">unfold</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
