@@ -1,0 +1,7 @@
+.circle {
+  background: url(images/sprites/black-circle.png) 0 0 no-repeat;
+}
+
+.circle.blue {
+  background-image: url(images/sprites/light-blue-circle.png);
+}

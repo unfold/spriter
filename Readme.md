@@ -2,7 +2,7 @@
 
 # spriter
 
-  CSS sprite sheet generator that analyzes your existing stylesheet and generates optimized sprite sheets along with an updated stylesheet
+  CSS sprite sheet generator that analyzes your existing stylesheet and generates optimized sprite sheets or inlines them as data URIs along with an updated stylesheet
 
 ## Installation
 
@@ -19,6 +19,7 @@ Options:
   -t, --target <path>      target path relative to input
   -s, --source <path>      source path relative to input (required when stdin is used)
   -f, --filter <path>      source url filter (e.g: images/sprites)
+  -i, --inline             inline sprites as data URIs
   -O, --no-optimization    disable rule optimization
   -h, --help               output usage information
   -V, --version            output the version number

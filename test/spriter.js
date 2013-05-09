@@ -48,6 +48,10 @@ describe('spriter', function() {
         diff(fixturePath + targetPath + 'no-optimization.png', fixturePath + 'no-optimization.out.png').should.be.false;
     });
 
+    it('should inline sprites with optimization', function() {
+        spriter(fixture('inline'), fixturePath, targetPath + 'simple.png', null, true, true).should.equal(fixture('inline.out'));
+    });
+
     it('should not read filtered declarations', function() {
         spriter(fixture('filtered'), fixturePath, targetPath + 'filtered.png', 'sprites/', true).should.equal(fixture('filtered.out'));
 

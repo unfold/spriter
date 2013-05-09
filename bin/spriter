@@ -11,6 +11,7 @@ program
   .option('-t, --target <path>', 'target path relative to input', 'images/generated/sprites.png')
   .option('-s, --source <path>', 'source path relative to input (required when stdin is used)')
   .option('-f, --filter <path>', 'source url filter (e.g: images/sprites)')
+  .option('-i, --inline', 'inline sprites as data URIs')
   .option('-O, --no-optimization', 'disable rule optimization')
   .parse(process.argv);
 
@@ -18,7 +19,7 @@ var file = program.args[0];
 
 if (file) {
     var input = fs.readFileSync(file, 'utf-8');
-    var output = spriter(input, program.source || path.dirname(file), program.target, program.filter, program.optimization);
+    var output = spriter(input, program.source || path.dirname(file), program.target, program.filter, program.optimization, program.inline);
 
     process.stdout.write(output);
 } else if (program.source) {
@@ -26,7 +27,7 @@ if (file) {
 
     process.stdin.on('data', chunks.push.bind(chunks));
     process.stdin.on('end', function() {
-        var output = spriter(chunks.join(''), program.source, program.target, program.filter);
+        var output = spriter(chunks.join(''), program.source, program.target, program.filter, program.optimization, program.inline);
 
         process.stdout.write(output);
     });
