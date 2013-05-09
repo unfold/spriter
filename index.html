@@ -30,7 +30,7 @@
       <section>
         <h3>CSS Sprites Made Simple.</h3>
 
-<p>Spriter analyzes your existing CSS file, generates highly optimized sprite sheets using a <a href="http://codeincomplete.com/posts/2011/5/7/bin_packing">growing binary tree bin-packing algorithm</a> and outputs an updated CSS file. </p>
+<p>Spriter analyzes your existing CSS file, generates highly optimized sprite sheets using a <a href="http://codeincomplete.com/posts/2011/5/7/bin_packing">growing binary tree bin-packing algorithm</a> or inlines them using data URIs and outputs an updated CSS file.</p>
 
 <p>It even groups your <a href="http://work.no/lib/images/generated/sprites/base@2x.png">retina</a> and <a href="http://work.no/lib/images/generated/sprites/base@2x.png">non-retina</a> images into separate sprite sheets to reduce load times.</p>
 
@@ -53,6 +53,7 @@
 <pre><code>-t, --target &lt;path&gt;      target path relative to input
 -s, --source &lt;path&gt;      source path relative to input (required when stdin is used)
 -f, --filter &lt;path&gt;      source url filter (e.g: images/sprites)
+-i, --inline             inline sprites as data URIs
 -O, --no-optimization    disable rule optimization
 -h, --help               output usage information
 -V, --version            output the version number
