@@ -30,7 +30,7 @@
       <section>
         <h3>CSS Sprites Made Simple.</h3>
 
-<p>Spriter analyzes your existing CSS file, generates highly optimized sprite sheets using a <a href="http://codeincomplete.com/posts/2011/5/7/bin_packing">growing binary tree bin-packing algorithm</a> or inlines them using data URIs and outputs an updated CSS file.</p>
+<p>Spriter analyzes your existing CSS files and either generates highly optimized sprite sheets using a <a href="http://codeincomplete.com/posts/2011/5/7/bin_packing">growing binary tree bin-packing algorithm</a> or inlines them using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme#CSS">data URIs</a> and outputs an updated CSS stylesheet.</p>
 
 <p>It even groups your <a href="http://work.no/lib/images/generated/sprites/base@2x.png">retina</a> and <a href="http://work.no/lib/images/generated/sprites/base@2x.png">non-retina</a> images into separate sprite sheets to reduce load times.</p>
 
@@ -45,13 +45,13 @@
 
 <h3>Usage</h3>
 
-<pre><code>$ spriter [options] [&lt; in [&gt; out]] [file]
+<pre><code>$ spriter [options] [file]
 </code></pre>
 
 <h3>Options</h3>
 
-<pre><code>-t, --target &lt;path&gt;      target path relative to input
--s, --source &lt;path&gt;      source path relative to input (required when stdin is used)
+<pre><code>-s, --source &lt;path&gt;      source path relative to input (required when stdin is used)
+-t, --target &lt;path&gt;      target path relative to source path (required unless generating inline)
 -f, --filter &lt;path&gt;      source url filter (e.g: images/sprites)
 -i, --inline             inline sprites as data URIs
 -O, --no-optimization    disable rule optimization
@@ -61,30 +61,38 @@
 
 <h3>Examples</h3>
 
-<h4>Generating a simple sprite sheet from an existing CSS file:</h4>
+<h4>Generating a sprite sheet from an existing CSS file:</h4>
 
-<pre><code>$ spriter -t images/sprites.png main.css &gt; main.sprited.css
+<pre><code>$ spriter --target images/sprites.png main.css &gt; main.sprited.css
 </code></pre>
 
 <p>If Spriter finds any retina resolution images it will generate a separate sprite sheet for those images (in this example <code>ímages/sprites@2x.png</code>)</p>
 
 <h4>Using Spriter with <a href="http://sass-lang.com">SASS</a>:</h4>
 
-<pre><code>$ sass main.scss | spriter -t images/sprites.png -s images &gt; main.css
+<pre><code>$ sass css/main.scss | spriter --source css --target images/sprites.png &gt; main.css
 </code></pre>
 
-<p>The <code>-s</code> switch tells Spriter how to translate URLs into file system paths when reading images.</p>
+<p>The <code>--source</code> option tells Spriter how to translate URLs into file system paths when reading images.</p>
+
+<p>In this example the resulting sprite would be generated at <code>css/images/sprites.png</code>.</p>
 
 <h4>Only include images in a specific location:</h4>
 
-<pre><code>$ spriter -t images/home-sprites.png -f images/home/ main.css &gt; main.sprited.css
+<pre><code>$ spriter --target images/home-sprites.png --filter images/home/ main.css &gt; main.sprited.css
 </code></pre>
 
 <p>This is handy for multi-page sites where you want to group sprite sheets by page or similar.</p>
 
+<h4>Inline images in resulting CSS using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme#CSS">data URIs</a>
+</h4>
+
+<pre><code>$ spriter --filter images/sprites/icons/ --inline main.css &gt; main.sprited.css
+</code></pre>
+
 <h3>Rule optimization</h3>
 
-<p>Spriter will by default combine multi-declaration background declarations within the same rule:</p>
+<p>Spriter will by default convert multi-declaration backgrounds to a single short-hand within the same rule:</p>
 
 <div class="highlight"><pre><span class="nc">.circle</span> <span class="p">{</span>
     <span class="k">background</span><span class="o">:</span> <span class="sx">url(images/generated/sprites.png)</span> <span class="k">no-repeat</span><span class="p">;</span>
@@ -107,7 +115,7 @@
 
 <pre><code>var spriter = require('spriter')
 
-spriter(string, sourcePath, targetPath, optimize)
+spriter(string, sourcePath, targetPath, optimize, inline)
 </code></pre>
 
 <h3>License</h3>
