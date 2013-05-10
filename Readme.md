@@ -1,53 +1,68 @@
 [![build status](https://secure.travis-ci.org/unfold/spriter.png)](http://travis-ci.org/unfold/spriter)
 
-# spriter
+### CSS Sprites Made Simple.
 
-  CSS sprite sheet generator that analyzes your existing stylesheet and generates optimized sprite sheets or inlines them as data URIs along with an updated stylesheet
+Spriter analyzes your existing CSS files and either generates highly optimized sprite sheets using a [growing binary tree bin-packing algorithm](http://codeincomplete.com/posts/2011/5/7/bin_packing) or inlines them using [data URIs](http://en.wikipedia.org/wiki/Data_URI_scheme#CSS) and outputs an updated CSS stylesheet.
 
-## Installation
+It even groups your [retina](http://work.no/lib/images/generated/sprites/base@2x.png) and [non-retina](http://work.no/lib/images/generated/sprites/base@2x.png) images into separate sprite sheets to reduce load times.
+
+#### No strings attached
+
+Instead of relying on a specific [framework](http://compass-style.org) or [build system](http://gruntjs.com) Spriter will work with anything that outputs or processes a CSS file.
+
+### Installation
 
     $ npm install spriter
 
-## spriter(1)
+### Usage
 
-```
+    $ spriter [options] [file]
 
-Usage: spriter [options] [< in [> out]] [file]
+### Options
+    -s, --source <path>      source path relative to input (required when stdin is used)
+    -t, --target <path>      target path relative to source path (required unless generating inline)
+    -f, --filter <path>      source url filter (e.g: images/sprites)
+    -i, --inline             inline sprites as data URIs
+    -O, --no-optimization    disable rule optimization
+    -h, --help               output usage information
+    -V, --version            output the version number
 
-Options:
+### Examples
 
-  -t, --target <path>      target path relative to input
-  -s, --source <path>      source path relative to input (required when stdin is used)
-  -f, --filter <path>      source url filter (e.g: images/sprites)
-  -i, --inline             inline sprites as data URIs
-  -O, --no-optimization    disable rule optimization
-  -h, --help               output usage information
-  -V, --version            output the version number
+#### Generating a sprite sheet from an existing CSS file:
 
-```
+    $ spriter --target images/sprites.png main.css > main.sprited.css
+    
+If Spriter finds any retina resolution images it will generate a separate sprite sheet for those images (in this example `ímages/sprites@2x.png`)
+    
+#### Using Spriter with [SASS](http://sass-lang.com):
 
-for example:
+    $ sass css/main.scss | spriter --source css --target images/sprites.png > main.css
+    
+The `--source` option tells Spriter how to translate URLs into file system paths when reading images.
 
-```
-$ spriter -t images/sprites/main.png css/main.css > css/main.sprited.css
-```
+In this example the resulting sprite would be generated at `css/images/sprites.png`.
 
-or via `stdin`
+#### Only include images in a specific location:
 
-```
-$ cat css/main.css | spriter -t images/generated/sprites/main.png -s images/sprites -f images/sprites > css/main.sprited.css
-```
+    $ spriter --target images/home-sprites.png --filter images/home/ main.css > main.sprited.css
 
-## Rule optimization
+This is handy for multi-page sites where you want to group sprite sheets by page or similar.
 
-Spriter will by default combine multi-declaration background declarations within the same rule:
+#### Inline images in CSS using [data URIs](http://en.wikipedia.org/wiki/Data_URI_scheme#CSS)
+
+    $ spriter --filter images/sprites/icons/ --inline main.css > main.sprited.css
+
+### Rule optimization
+
+Spriter will by default convert multi-declaration backgrounds to a single short-hand within the same rule:
 
 ```css
 .circle {
-  background: url(images/generated/sprites.png) no-repeat;
-  background-position: -50px 0;
-  background-color: #ccc;
-  background-size: 100px auto
+    background: url(images/generated/sprites.png) no-repeat;
+    background-position: -50px 0;
+    background-color: #ccc;
+    background-size: 100px auto
 }
 ```
 
@@ -55,11 +70,18 @@ becomes:
 
 ```css
 .circle {
-  background: #ccc url(images/generated/sprites.png) -50px 0 100px auto no-repeat
+    background: #ccc url(images/generated/sprites.png) -50px 0 100px auto no-repeat
 }
 ```
 
-Optimization can be disabled by supplying the `-O/--no-optimization` flag.
+Optimization can be disabled by supplying the `--no-optimization` flag.
+
+### API
+
+    var spriter = require('spriter')
+    
+    spriter(string, sourcePath, targetPath, optimize, inline)
+
 
 ## License
 
