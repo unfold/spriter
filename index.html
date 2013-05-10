@@ -28,7 +28,9 @@
         </ul>
       </header>
       <section>
-        <h3>CSS Sprites Made Simple.</h3>
+        <p><a href="http://travis-ci.org/unfold/spriter"><img src="https://secure.travis-ci.org/unfold/spriter.png" alt="build status"></a></p>
+
+<h3>CSS Sprites Made Simple.</h3>
 
 <p>Spriter analyzes your existing CSS files and either generates highly optimized sprite sheets using a <a href="http://codeincomplete.com/posts/2011/5/7/bin_packing">growing binary tree bin-packing algorithm</a> or inlines them using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme#CSS">data URIs</a> and outputs an updated CSS stylesheet.</p>
 
@@ -84,7 +86,7 @@
 
 <p>This is handy for multi-page sites where you want to group sprite sheets by page or similar.</p>
 
-<h4>Inline images in resulting CSS using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme#CSS">data URIs</a>
+<h4>Inline images in CSS using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme#CSS">data URIs</a>
 </h4>
 
 <pre><code>$ spriter --filter images/sprites/icons/ --inline main.css &gt; main.sprited.css
@@ -109,7 +111,7 @@
 <span class="p">}</span>
 </pre></div>
 
-<p>Optimization can be disabled by supplying the <code>-O/--no-optimization</code> flag.</p>
+<p>Optimization can be disabled by supplying the <code>--no-optimization</code> flag.</p>
 
 <h3>API</h3>
 
@@ -118,9 +120,30 @@
 spriter(string, sourcePath, targetPath, optimize, inline)
 </code></pre>
 
-<h3>License</h3>
+<h2>License</h2>
 
-<p><a href="http://en.wikipedia.org/wiki/MIT_License">MIT</a></p>
+<p>(The MIT License)</p>
+
+<p>Copyright (c) 2012 Simen Brekken &lt;<a href="mailto:simen@unfold.no">simen@unfold.no</a>&gt; and Daniel Mahal &lt;<a href="mailto:daniel@unfold.no">daniel@unfold.no</a>&gt;</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/unfold">unfold</a></p>
