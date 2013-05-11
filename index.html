@@ -32,13 +32,19 @@
 
 <h3>CSS Sprites Made Simple.</h3>
 
-<p>Spriter analyzes your existing CSS files and either generates highly optimized sprite sheets using a <a href="http://codeincomplete.com/posts/2011/5/7/bin_packing">growing binary tree bin-packing algorithm</a> or inlines them using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme#CSS">data URIs</a> and outputs an updated CSS stylesheet.</p>
+<p>Spriter analyzes your existing CSS files and either generates highly 
+optimized sprite sheets using a <a href="http://codeincomplete.com/posts/2011/5/7/bin_packing">growing binary tree bin-packing algorithm</a> or inlines them using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme#CSS">data URIs</a> 
+and outputs an updated CSS stylesheet.</p>
 
-<p>It even groups your <a href="http://work.no/lib/images/generated/sprites/base@2x.png">retina</a> and <a href="http://work.no/lib/images/generated/sprites/base@2x.png">non-retina</a> images into separate sprite sheets to reduce load times.</p>
+<p>It even groups your <a href="http://work.no/lib/images/generated/sprites/base@2x.png">retina</a> 
+and <a href="http://work.no/lib/images/generated/sprites/base@2x.png">non-retina</a> images 
+into separate sprite sheets to reduce load times.</p>
 
 <h4>No strings attached</h4>
 
-<p>Instead of relying on a specific <a href="http://compass-style.org">framework</a> or <a href="http://gruntjs.com">build system</a> Spriter will work with anything that outputs or processes a CSS file.</p>
+<p>Instead of relying on a specific <a href="http://compass-style.org">framework</a> 
+or <a href="http://gruntjs.com">build system</a> Spriter will work with anything that outputs 
+or processes a CSS file.</p>
 
 <h3>Installation</h3>
 
@@ -52,8 +58,8 @@
 
 <h3>Options</h3>
 
-<pre><code>-s, --source &lt;path&gt;      source path relative to input (required when stdin is used)
--t, --target &lt;path&gt;      target path relative to source path (required unless generating inline)
+<pre><code>-t, --target &lt;path&gt;      target path relative to input (required unless generating inline)
+-s, --source &lt;path&gt;      source path relative to input (required when stdin is used)
 -f, --filter &lt;path&gt;      source url filter (e.g: images/sprites)
 -i, --inline             inline sprites as data URIs
 -O, --no-optimization    disable rule optimization
@@ -68,14 +74,16 @@
 <pre><code>$ spriter --target images/sprites.png main.css &gt; main.sprited.css
 </code></pre>
 
-<p>If Spriter finds any retina resolution images it will generate a separate sprite sheet for those images (in this example <code>ímages/sprites@2x.png</code>)</p>
+<p>If Spriter finds any retina resolution images it will generate a separate sprite sheet 
+for those images (in this example <code>ímages/sprites@2x.png</code>)</p>
 
 <h4>Using Spriter with <a href="http://sass-lang.com">SASS</a>:</h4>
 
 <pre><code>$ sass css/main.scss | spriter --source css --target images/sprites.png &gt; main.css
 </code></pre>
 
-<p>The <code>--source</code> option tells Spriter how to translate URLs into file system paths when reading images.</p>
+<p>The <code>--source</code> option tells Spriter how to translate URLs into file system paths 
+when reading images.</p>
 
 <p>In this example the resulting sprite would be generated at <code>css/images/sprites.png</code>.</p>
 
@@ -94,7 +102,8 @@
 
 <h3>Rule optimization</h3>
 
-<p>Spriter will by default convert multi-declaration backgrounds to a single short-hand within the same rule:</p>
+<p>Spriter will by default convert multi-declaration backgrounds to a single 
+short-hand within the same rule:</p>
 
 <div class="highlight"><pre><span class="nc">.circle</span> <span class="p">{</span>
     <span class="k">background</span><span class="o">:</span> <span class="sx">url(images/generated/sprites.png)</span> <span class="k">no-repeat</span><span class="p">;</span>
