@@ -2,13 +2,19 @@
 
 ### CSS Sprites Made Simple.
 
-Spriter analyzes your existing CSS files and either generates highly optimized sprite sheets using a [growing binary tree bin-packing algorithm](http://codeincomplete.com/posts/2011/5/7/bin_packing) or inlines them using [data URIs](http://en.wikipedia.org/wiki/Data_URI_scheme#CSS) and outputs an updated CSS stylesheet.
+Spriter analyzes your existing CSS files and either generates highly 
+optimized sprite sheets using a [growing binary tree bin-packing algorithm](http://codeincomplete.com/posts/2011/5/7/bin_packing) or inlines them using [data URIs](http://en.wikipedia.org/wiki/Data_URI_scheme#CSS) 
+and outputs an updated CSS stylesheet.
 
-It even groups your [retina](http://work.no/lib/images/generated/sprites/base@2x.png) and [non-retina](http://work.no/lib/images/generated/sprites/base@2x.png) images into separate sprite sheets to reduce load times.
+It even groups your [retina](http://work.no/lib/images/generated/sprites/base@2x.png) 
+and [non-retina](http://work.no/lib/images/generated/sprites/base@2x.png) images 
+into separate sprite sheets to reduce load times.
 
 #### No strings attached
 
-Instead of relying on a specific [framework](http://compass-style.org) or [build system](http://gruntjs.com) Spriter will work with anything that outputs or processes a CSS file.
+Instead of relying on a specific [framework](http://compass-style.org) 
+or [build system](http://gruntjs.com) Spriter will work with anything that outputs 
+or processes a CSS file.
 
 ### Installation
 
@@ -19,8 +25,8 @@ Instead of relying on a specific [framework](http://compass-style.org) or [build
     $ spriter [options] [file]
 
 ### Options
+    -t, --target <path>      target path relative to input (required unless generating inline)
     -s, --source <path>      source path relative to input (required when stdin is used)
-    -t, --target <path>      target path relative to source path (required unless generating inline)
     -f, --filter <path>      source url filter (e.g: images/sprites)
     -i, --inline             inline sprites as data URIs
     -O, --no-optimization    disable rule optimization
@@ -33,13 +39,15 @@ Instead of relying on a specific [framework](http://compass-style.org) or [build
 
     $ spriter --target images/sprites.png main.css > main.sprited.css
     
-If Spriter finds any retina resolution images it will generate a separate sprite sheet for those images (in this example `ímages/sprites@2x.png`)
+If Spriter finds any retina resolution images it will generate a separate sprite sheet 
+for those images (in this example `ímages/sprites@2x.png`)
     
 #### Using Spriter with [SASS](http://sass-lang.com):
 
     $ sass css/main.scss | spriter --source css --target images/sprites.png > main.css
     
-The `--source` option tells Spriter how to translate URLs into file system paths when reading images.
+The `--source` option tells Spriter how to translate URLs into file system paths 
+when reading images.
 
 In this example the resulting sprite would be generated at `css/images/sprites.png`.
 
@@ -55,7 +63,8 @@ This is handy for multi-page sites where you want to group sprite sheets by page
 
 ### Rule optimization
 
-Spriter will by default convert multi-declaration backgrounds to a single short-hand within the same rule:
+Spriter will by default convert multi-declaration backgrounds to a single 
+short-hand within the same rule:
 
 ```css
 .circle {
