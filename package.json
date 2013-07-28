@@ -6,7 +6,7 @@
     "sprite",
     "css"
   ],
-  "version": "0.2.2",
+  "version": "0.2.3",
   "license": "MIT",
   "bin": {
     "spriter": "./bin/spriter"
