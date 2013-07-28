@@ -1,7 +1,7 @@
 .circle {
-  background: url(images/black-circle.png) no-repeat
+  background: url(images/black-circle.png) no-repeat;
 }
 
 .circle.blue {
-  background: url(images/generated/sprites/filtered.png) no-repeat
+  background: url(images/generated/sprites/filtered.png) no-repeat;
 }

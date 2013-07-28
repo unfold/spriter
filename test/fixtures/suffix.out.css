@@ -1,7 +1,7 @@
 .circle {
-  background: url(images/generated/sprites/suffix@2x.png) no-repeat
+  background: url(images/generated/sprites/suffix@2x.png) no-repeat;
 }
 
 .circle.blue {
-  background: url(images/generated/sprites/suffix.png) no-repeat
+  background: url(images/generated/sprites/suffix.png) no-repeat;
 }
