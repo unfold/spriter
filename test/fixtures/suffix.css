@@ -1,7 +1,14 @@
 .circle {
-  background: url(images/sprites/black-circle@2x.png) no-repeat;
+  background: url(images/sprites/light-blue-circle.png) no-repeat;
 }
 
-.circle.blue {
-  background-image: url(images/sprites/light-blue-circle.png);
+.circle.black {
+    background-image: url(images/sprites/black-circle.png);
+}
+
+@media all and (-webkit-min-device-pixel-ratio: 1.5) {
+    .circle.black {
+        background-image: url(images/sprites/black-circle@2x.png);
+        background-size: 24px auto;
+    }
 }
