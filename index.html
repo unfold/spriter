@@ -30,7 +30,8 @@
       <section>
         <p><a href="http://travis-ci.org/unfold/spriter"><img src="https://secure.travis-ci.org/unfold/spriter.png" alt="build status"></a></p>
 
-<h3>CSS Sprites Made Simple.</h3>
+<h3>
+<a name="css-sprites-made-simple" class="anchor" href="#css-sprites-made-simple"><span class="octicon octicon-link"></span></a>CSS Sprites Made Simple.</h3>
 
 <p>Spriter analyzes your existing CSS files and either generates highly 
 optimized sprite sheets using a <a href="http://codeincomplete.com/posts/2011/5/7/bin_packing">growing binary tree bin-packing algorithm</a> or inlines them using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme#CSS">data URIs</a> 
@@ -40,23 +41,27 @@ and outputs an updated CSS stylesheet.</p>
 and <a href="http://work.no/lib/images/generated/sprites/base@2x.png">non-retina</a> images 
 into separate sprite sheets to reduce load times.</p>
 
-<h4>No strings attached</h4>
+<h4>
+<a name="no-strings-attached" class="anchor" href="#no-strings-attached"><span class="octicon octicon-link"></span></a>No strings attached</h4>
 
 <p>Instead of relying on a specific <a href="http://compass-style.org">framework</a> 
 or <a href="http://gruntjs.com">build system</a> Spriter will work with anything that outputs 
 or processes a CSS file.</p>
 
-<h3>Installation</h3>
+<h3>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h3>
 
 <pre><code>$ npm install spriter
 </code></pre>
 
-<h3>Usage</h3>
+<h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
 
 <pre><code>$ spriter [options] [file]
 </code></pre>
 
-<h3>Options</h3>
+<h3>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h3>
 
 <pre><code>-t, --target &lt;path&gt;      target path relative to input (required unless generating inline)
 -s, --source &lt;path&gt;      source path relative to input (required when stdin is used)
@@ -67,9 +72,11 @@ or processes a CSS file.</p>
 -V, --version            output the version number
 </code></pre>
 
-<h3>Examples</h3>
+<h3>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h3>
 
-<h4>Generating a sprite sheet from an existing CSS file:</h4>
+<h4>
+<a name="generating-a-sprite-sheet-from-an-existing-css-file" class="anchor" href="#generating-a-sprite-sheet-from-an-existing-css-file"><span class="octicon octicon-link"></span></a>Generating a sprite sheet from an existing CSS file:</h4>
 
 <pre><code>$ spriter --target images/sprites.png main.css &gt; main.sprited.css
 </code></pre>
@@ -77,7 +84,8 @@ or processes a CSS file.</p>
 <p>If Spriter finds any retina resolution images it will generate a separate sprite sheet 
 for those images (in this example <code>ímages/sprites@2x.png</code>)</p>
 
-<h4>Using Spriter with <a href="http://sass-lang.com">SASS</a>:</h4>
+<h4>
+<a name="using-spriter-with-sass" class="anchor" href="#using-spriter-with-sass"><span class="octicon octicon-link"></span></a>Using Spriter with <a href="http://sass-lang.com">SASS</a>:</h4>
 
 <pre><code>$ sass css/main.scss | spriter --source css --target images/sprites.png &gt; main.css
 </code></pre>
@@ -87,20 +95,23 @@ when reading images.</p>
 
 <p>In this example the resulting sprite would be generated at <code>css/images/sprites.png</code>.</p>
 
-<h4>Only include images in a specific location:</h4>
+<h4>
+<a name="only-include-images-in-a-specific-location" class="anchor" href="#only-include-images-in-a-specific-location"><span class="octicon octicon-link"></span></a>Only include images in a specific location:</h4>
 
 <pre><code>$ spriter --target images/home-sprites.png --filter images/home/ main.css &gt; main.sprited.css
 </code></pre>
 
 <p>This is handy for multi-page sites where you want to group sprite sheets by page or similar.</p>
 
-<h4>Inline images in CSS using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme#CSS">data URIs</a>
+<h4>
+<a name="inline-images-in-css-using-data-uris" class="anchor" href="#inline-images-in-css-using-data-uris"><span class="octicon octicon-link"></span></a>Inline images in CSS using <a href="http://en.wikipedia.org/wiki/Data_URI_scheme#CSS">data URIs</a>
 </h4>
 
 <pre><code>$ spriter --filter images/sprites/icons/ --inline main.css &gt; main.sprited.css
 </code></pre>
 
-<h3>Rule optimization</h3>
+<h3>
+<a name="rule-optimization" class="anchor" href="#rule-optimization"><span class="octicon octicon-link"></span></a>Rule optimization</h3>
 
 <p>Spriter will by default convert multi-declaration backgrounds to a single 
 short-hand within the same rule:</p>
@@ -116,20 +127,22 @@ short-hand within the same rule:</p>
 <p>becomes:</p>
 
 <div class="highlight"><pre><span class="nc">.circle</span> <span class="p">{</span>
-    <span class="k">background</span><span class="o">:</span> <span class="m">#ccc</span> <span class="sx">url(images/generated/sprites.png)</span> <span class="m">-50px</span> <span class="m">0</span> <span class="m">100px</span> <span class="k">auto</span> <span class="k">no-repeat</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#ccc</span> <span class="sx">url(images/generated/sprites.png)</span> <span class="m">-50px</span> <span class="m">0</span><span class="o">/</span><span class="m">100px</span> <span class="k">auto</span> <span class="k">no-repeat</span>
 <span class="p">}</span>
 </pre></div>
 
 <p>Optimization can be disabled by supplying the <code>--no-optimization</code> flag.</p>
 
-<h3>API</h3>
+<h3>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h3>
 
 <pre><code>var spriter = require('spriter')
 
 spriter(string, sourcePath, targetPath, optimize, inline)
 </code></pre>
 
-<h2>License</h2>
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>(The MIT License)</p>
 
