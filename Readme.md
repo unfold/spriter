@@ -79,7 +79,7 @@ becomes:
 
 ```css
 .circle {
-    background: #ccc url(images/generated/sprites.png) -50px 0 100px auto no-repeat
+    background: #ccc url(images/generated/sprites.png) -50px 0/100px auto no-repeat
 }
 ```
 
